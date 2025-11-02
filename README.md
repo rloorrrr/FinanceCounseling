@@ -265,7 +265,3 @@ CUDA GPU (VRAM 8GB 이상 권장)
 CPU 모드에서도 실행 가능하지만 속도 저하 가능
 
 
-
-vectorstore/
-└── faiss_index.bin
-```
