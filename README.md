@@ -57,28 +57,28 @@ AI 기반 **금융 상담 챗봇 프로젝트**, **LUPANG**입니다.
 
 ### ✨ 주요 기능
 
-#### 💬 금융 고객 상담 대화
+#### 금융 고객 상담 대화
 - 금융 상담 데이터 기반 고객 질문 이해 및 응답 생성  
 - 다중 턴 대화 관리 및 자연스러운 대화 흐름  
 
-#### 🧠 멀티턴 요약 & 메모리
+#### 멀티턴 요약 & 메모리
 - KoBART + LoRA 요약 모델로 긴 대화 요약  
 - Turn 조건 기반 자동 요약 및 문맥 유지  
 
-#### 🔍 RAG 기반 정보 검색
+#### RAG 기반 정보 검색
 - SentenceTransformer(`KURE-v1`) 임베딩  
 - FAISS 인덱스 기반 유사 문서 검색  
 - Confidence 기반 카테고리 조건부 검색  
 
-#### 💡 LLM 응답 생성
+#### LLM 응답 생성
 - `EXAONE-3.5` 모델 기반 자연스러운 상담사 스타일 응답  
 - RAG 실패 시 fallback 정책 적용  
 
-#### 🧹 개인정보 마스킹
+#### 개인정보 마스킹
 - 이름, 카드번호, 계좌, 금액, 날짜 등 민감정보 자동 마스킹  
 - `<NAME>`, `<CARD>`, `<DATE>`, `<NUM>` 형태로 변환  
 
-#### ⚙️ 파인튜닝 파이프라인 제공
+#### 파인튜닝 파이프라인 제공
 - `Gemma 2 9B`: 금융 상담 데이터 생성  
 - `KoBART + LoRA`: 요약 모델 파인튜닝  
 - 학습 및 추론 스크립트 포함  
@@ -161,41 +161,41 @@ AI 기반 **금융 상담 챗봇 프로젝트**, **LUPANG**입니다.
 
 ```
 FinanceCounseling/
-├── assets/ #서비스 로고 및 이미지 파일 저장
+├── assets/                   # 서비스 로고 및 이미지 파일
 │   ├── lupanglogo.png
 │   └── lupangg.png
 │
-├── data/ 
-│   ├── final_rag_data.csv #RAG 학습용 금융 상담 데이터 저장
-│   ├── val_QA.json #evaluation용 Q-A 데이터 쌍
-│   └── preprocessed_hanacard_summary.csv  #KoBART LoRA 요약 학습 데이터
+├── data/                     # 학습 및 검증 데이터
+│   ├── final_rag_data.csv
+│   ├── val_QA.json
+│   └── preprocessed_hanacard_summary.csv
 │
-├── models/ #요약모델 학습 가중치
+├── models/                   # KoBART LoRA 가중치
 │   ├── adapter_config.json
 │   ├── adapter_model.safetensors
 │   ├── special_tokens_map.json
 │   ├── tokenizer.json
 │   └── tokenizer_config.json
 │
-├── vectorstore/ #벡터 데이터베이스 저장 공간 
-│   ├── faiss_index.bin #구글 드라이브 
-│   ├── documents.json 
+├── vectorstore/              # 벡터 데이터베이스
+│   ├── faiss_index.bin       # 구글 드라이브에서 다운로드 필요 (용량 초과)
+│   ├── documents.json
 │   └── .gitkeep
 │
 ├── src/
-│   ├── __init__.py
-│   ├── chatbot.py #RAG + LLM 오케스트레이션
-│   └── config.py #경로/환경 설정
+│   ├── chatbot.py            # RAG + LLM 오케스트레이션
+│   └── config.py             # 환경 및 경로 설정
 │
 ├── evaluation/
-│   ├── analyze_results.py #
-│   └── evaluate_similarity.py #
+│   ├── analyze_results.py
+│   └── evaluate_similarity.py
 │
-├── main.py #CLI 실행용 엔트리포인트
-├── app.py #그라디오 실행용 코드
-├── sum_train.py #KoBART LoRA 요약모델 파인튜닝 코드 
+├── main.py                   # CLI 실행용
+├── app.py                    # Gradio 실행용
+├── sum_train.py              # KoBART LoRA 학습 코드
 ├── requirements.txt
 └── README.md
+
 ```
 
 <br>
@@ -219,7 +219,7 @@ pip install -r requirements.txt
 📝 데이터 준비
 학습 및 운영 데이터: data/final_rag_data.csv
 KoBART LoRA 요약 모델 가중치: models/kobart-lora-dialogue-summary/ (이미 저장됨)
-FAISS 인덱스 파일: Google Drive에서 faiss_index.bin 다운로드 후 vectorstore/ 경로에 저장
+FAISS 인덱스 파일: Google Drive(https://drive.google.com/drive/folders/1wGRHYRE6s1Jpj4qkpUHwNCISuTNesyY4?usp=drive_link) 에서 faiss_index.bin 다운로드 후 vectorstore/ 경로에 저장
 ⚠️ vectorstore/faiss_index.bin 파일이 없으면 검색 기반 기능이 정상 동작하지 않습니다.
 
 🔧 KoBART LoRA 모델 학습 (선택 사항)
