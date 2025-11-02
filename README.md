@@ -219,7 +219,7 @@ pip install -r requirements.txt
 📝 데이터 준비
 학습 및 운영 데이터: data/final_rag_data.csv
 KoBART LoRA 요약 모델 가중치: models/kobart-lora-dialogue-summary/ (이미 저장됨)
-FAISS 인덱스 파일: Google Drive(https://drive.google.com/drive/folders/1wGRHYRE6s1Jpj4qkpUHwNCISuTNesyY4?usp=drive_link) 에서 faiss_index.bin 다운로드 후 vectorstore/ 경로에 저장
+FAISS 인덱스 파일: [Google Drive](https://drive.google.com/drive/folders/1wGRHYRE6s1Jpj4qkpUHwNCISuTNesyY4?usp=drive_link) 에서 faiss_index.bin 다운로드 후 vectorstore/ 경로에 저장
 ⚠️ vectorstore/faiss_index.bin 파일이 없으면 검색 기반 기능이 정상 동작하지 않습니다.
 
 🔧 KoBART LoRA 모델 학습 (선택 사항)
